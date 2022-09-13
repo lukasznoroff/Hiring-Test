@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Button, Card, Heading, Column, Row, Spinner } from '~gui-library';
 import { sitesLoaded } from "~store/entities/sites/sites";
@@ -20,19 +21,23 @@ const Sites = ({ list, loading, sitesLoaded }) => {
             loading={loading}
             disabled={loading}
           />
+          
         </Column>
         <Column>
+        {loading && <Spinner dark />}
           <div className={styles.sitesList}>
             {list.length ? (
               <ul>
                 {list.map((site, i) => (
-                  <li key={i}>
-                    {site.name}
-                    {site.country}
-                    {site.oilRigs.map((el) => (
-                      <p key={el}>{el}</p>
-                    ))}
-                  </li>
+                  <Link to={`oil/${site.id}`}>
+                    <li key={i}>
+                      {site.name}
+                      {site.country}
+                      {site.oilRigs.map((el) => (
+                        <p key={el}>{el}</p>
+                      ))}
+                    </li>
+                  </Link>
                 ))}
               </ul>
             ) : (

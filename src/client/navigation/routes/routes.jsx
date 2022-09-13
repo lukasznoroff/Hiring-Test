@@ -19,7 +19,7 @@ export const Routes = () => {
       <Router>
         <Switch>
           <Route path="/" exact component={Main} />
-          <Route path="/oil" exact component={OilRigsPage} />
+          <Route path="/oil/:id" exact component={OilRigsPage} />
         </Switch>
 
       </Router>
