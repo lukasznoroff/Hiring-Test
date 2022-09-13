@@ -4,7 +4,7 @@ import sitesRoutes from './sites/sites.routes';
 import oilRigsRoutes from './oil-rigs/oil-rigs.routes';
 
 const server = express();
-const port = process.env.port || 3000;
+const port = process.env.port || 3333;
 const router = express.Router();
 
 server.use(cors());

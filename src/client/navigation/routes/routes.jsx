@@ -1,9 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import {TopBar} from '~gui-library';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { TopBar } from '~gui-library';
 import Logo from '../../images/logo@2x.png';
 
 import { Main } from '../../views/main/main';
+import { OilRigsPage } from '../../views/oilrigs/OilRigsPage';
 
 export const Routes = () => {
   return (
@@ -12,10 +13,15 @@ export const Routes = () => {
         title={{
           logo: <img src={Logo} alt="logo" />,
           label: 'Hiring Challenge'
+         
         }}
       />
       <Router>
-        <Route path="/" exact component={Main} />
+        <Switch>
+          <Route path="/" exact component={Main} />
+          <Route path="/oil" exact component={OilRigsPage} />
+        </Switch>
+
       </Router>
     </>
   );

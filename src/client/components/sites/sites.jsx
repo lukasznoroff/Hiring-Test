@@ -1,10 +1,11 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {Button, Card, Heading, Column, Row} from '~gui-library';
-import {sitesLoaded} from "~store/entities/sites/sites";
+import { connect } from 'react-redux';
+import { Button, Card, Heading, Column, Row, Spinner } from '~gui-library';
+import { sitesLoaded } from "~store/entities/sites/sites";
 import styles from './sites.module.less';
 
-const Sites = ({list, loading, sitesLoaded}) => {
+const Sites = ({ list, loading, sitesLoaded }) => {
+  console.log(list);
   return (
     <Card
       heading={
@@ -27,6 +28,10 @@ const Sites = ({list, loading, sitesLoaded}) => {
                 {list.map((site, i) => (
                   <li key={i}>
                     {site.name}
+                    {site.country}
+                    {site.oilRigs.map((el) => (
+                      <p key={el}>{el}</p>
+                    ))}
                   </li>
                 ))}
               </ul>
@@ -40,8 +45,8 @@ const Sites = ({list, loading, sitesLoaded}) => {
   );
 }
 
-const mapStateToProps = ({entities}) => {
-  const {sites} = entities;
+const mapStateToProps = ({ entities }) => {
+  const { sites } = entities;
   return {
     loading: sites.loading,
     list: sites.list
@@ -56,4 +61,4 @@ const ConnectedSites = connect(
   mapStateToProps,
   mapDispatchToProps,
 )(Sites);
-export {ConnectedSites as Sites};
+export { ConnectedSites as Sites };
