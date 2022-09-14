@@ -42,7 +42,7 @@ const OilRigsPage = ({ list, loading }) => {
         <span>Country Name: {country}</span>
         <span>Platforms Inuse: </span>
         <ul>{platforms?.map((platform)=>(
-          <li>{platform}</li>
+          <li key={platform}>{platform}</li>
         ))}</ul>
       </div>
     </div>

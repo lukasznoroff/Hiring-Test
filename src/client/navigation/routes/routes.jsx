@@ -5,6 +5,8 @@ import Logo from '../../images/logo@2x.png';
 
 import { Main } from '../../views/main/main';
 import { OilRigsPage } from '../../views/oilrigs/OilRigsPage';
+import {ChartViewPage} from '../../views/chartview/ChartViewPage';
+
 
 export const Routes = () => {
   return (
@@ -20,8 +22,9 @@ export const Routes = () => {
         <Switch>
           <Route path="/" exact component={Main} />
           <Route path="/oil/:id" exact component={OilRigsPage} />
-        </Switch>
+          <Route path="/chartview" exact component={ChartViewPage} />
 
+        </Switch>
       </Router>
     </>
   );
