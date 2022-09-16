@@ -1,10 +1,10 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {Button, Card, Heading, Column, Row} from '~gui-library';
-import {oilRigsLoaded} from "~store/entities/oil-rigs/oil-rigs";
+import { connect } from 'react-redux';
+import { Button, Card, Heading, Column, Row } from '~gui-library';
+import { oilRigsLoaded } from "~store/entities/oil-rigs/oil-rigs";
 import styles from './oil-rigs.module.less';
 
-const OilRigs = ({list, loading, oilRigsLoaded}) => {
+const OilRigs = ({ list, loading, oilRigsLoaded }) => {
   return (
     <Card
       heading={
@@ -40,8 +40,8 @@ const OilRigs = ({list, loading, oilRigsLoaded}) => {
   );
 }
 
-const mapStateToProps = ({entities}) => {
-  const {oilRigs} = entities;
+const mapStateToProps = ({ entities }) => {
+  const { oilRigs } = entities;
   return {
     loading: oilRigs.loading,
     list: oilRigs.list
@@ -56,4 +56,4 @@ const ConnectedOilRigs = connect(
   mapStateToProps,
   mapDispatchToProps,
 )(OilRigs);
-export {ConnectedOilRigs as OilRigs};
+export { ConnectedOilRigs as OilRigs };

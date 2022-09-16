@@ -1,15 +1,11 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { sitesLoaded } from "~store/entities/sites/sites";
-import { Button, Card, Heading, Column, Row, Spinner } from '~gui-library';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { sitesLoaded } from '~store/entities/sites/sites';
 import { connect } from 'react-redux';
 import { Bar } from 'react-chartjs-2';
 import { CategoryScale } from "chart.js";
 import Chart from 'chart.js/auto';
-import { useSelector } from "react-redux";
-import { useState } from "react";
 import styles from './ChartViewPage.module.css';
-
 
 const options = Object.freeze(
   {
@@ -25,7 +21,6 @@ const options = Object.freeze(
   }
 )
 
-
 const ChartViewPage = ({ list, sitesLoaded }) => {
 
   const [countries, setCoutries] = useState([])
@@ -33,11 +28,10 @@ const ChartViewPage = ({ list, sitesLoaded }) => {
 
   useEffect(() => {
     sitesLoaded()
-  }, [])
+  }, []);
 
 
   useEffect(() => {
-    console.log(list)
     setCoutries(list.map((el) => el.country));
     setQuantity(list.map((el) => el.oilRigs.length));
   }, [list])

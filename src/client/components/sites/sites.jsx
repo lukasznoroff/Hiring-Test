@@ -2,16 +2,15 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Button, Card, Heading, Column, Row, Spinner, Grid } from '~gui-library';
-import { sitesLoaded } from "~store/entities/sites/sites";
+import { sitesLoaded } from '~store/entities/sites/sites';
 import styles from './sites.module.less';
 import { useState } from 'react';
-// import styles from './MainPage.module.css'
 
 const Sites = ({ list, loading, sitesLoaded }) => {
   const [sortedList, setSortedList] = useState(list)
   useEffect(() => {
     setSortedList(list)
-  }, [list])
+  }, [list]);
   const sortByName = () => {
     const sortByKey = key => (a, b) => a[key] > b[key] ? 1 : -1
     const sorted = sortedList.slice().sort(sortByKey('name'))
@@ -41,7 +40,6 @@ const Sites = ({ list, loading, sitesLoaded }) => {
           <Button
             label="Sort sites"
             onClick={sortByName}
-
           />
 
         </Column>
